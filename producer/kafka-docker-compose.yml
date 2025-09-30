@@ -1,0 +1,24 @@
+version: '3.8'
+
+services:
+  kafka:
+    image: apache/kafka:3.7.0
+    container_name: kafka
+    ports:
+      - "9092:9092"
+    environment:
+      # --- KRaft 모드 설정 ---
+      KAFKA_NODE_ID: 1
+      KAFKA_PROCESS_ROLES: broker,controller
+      KAFKA_LISTENERS: PLAINTEXT://:9092,CONTROLLER://:9093
+      KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://localhost:9092
+      KAFKA_CONTROLLER_LISTENER_NAMES: CONTROLLER
+      KAFKA_CONTROLLER_QUORUM_VOTERS: 1@localhost:9093
+      KAFKA_LOG_DIRS: /tmp/kraft-combined-logs
+
+      # --- 기본 운영성 옵션 ---
+      KAFKA_AUTO_CREATE_TOPICS_ENABLE: "true"  # 자동 토픽 생성 허용 (개발용)
+      KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1
+      KAFKA_NUM_PARTITIONS: 6                  # 기본 파티션 수
+      KAFKA_LOG_RETENTION_HOURS: 168           # 메시지 보관 7일
+    restart: unless-stopped

@@ -1,0 +1,10 @@
+server:
+  port: 8082
+spring:
+  kafka:
+    bootstrap-servers: localhost:9092
+    consumer:
+      #      groupid는 컨슈머 그룹을 식별하는 ID로서, 동일한 그룹ID를 가진 컨슈머들은 메시지를 분담해서 consume
+      test1-group-id: test1-group
+      test2-group-id: test2-group
+#      만약 서버확장시 pub/sub 기능으로 사용하고 싶다면, 서버확장시 test1-group-id-instanceId(또는podId)와 같은 형식으로 확장

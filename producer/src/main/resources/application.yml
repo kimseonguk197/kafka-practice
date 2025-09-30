@@ -1,0 +1,6 @@
+server:
+  port: 8081
+spring:
+  kafka:
+#    kafka서버의 url
+    bootstrap-servers: localhost:9092
