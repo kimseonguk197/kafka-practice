@@ -12,8 +12,12 @@ public class ProducerController {
     }
 
     @PostMapping("/message/create")
-    public void orderCreate(@RequestBody StudentDto dto){
+    public void messageCreate(@RequestBody StudentDto dto){
         producerService.kafkaMessageCreate(dto);
+    }
+    @PostMapping("/message/create/key")
+    public void messageCreateKey(@RequestBody StudentDto dto){
+        producerService.kafkaMessageKeyCreate(dto);
     }
 
 }
