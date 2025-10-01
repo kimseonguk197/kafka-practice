@@ -26,7 +26,13 @@ public class ProducerService {
     }
     public void kafkaMessageKeyCreate(StudentDto dto) {
         System.out.println(dto);
-        kafkaTemplate.send("test1-topic","key1", dto);
+        try {
+            System.out.println(dto);
+            String data = objectMapper.writeValueAsString(dto);
+            kafkaTemplate.send("test1-topic","key1", data);
+        } catch (JsonProcessingException e) {
+            throw new RuntimeException(e);
+        }
     }
 
 }
