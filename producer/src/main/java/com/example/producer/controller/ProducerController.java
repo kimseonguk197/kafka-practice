@@ -1,5 +1,7 @@
-package com.example.test;
+package com.example.producer.controller;
 
+import com.example.producer.dtos.StudentDto;
+import com.example.producer.service.ProducerService;
 import org.springframework.web.bind.annotation.*;
 
 @RestController

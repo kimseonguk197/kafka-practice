@@ -1,4 +1,5 @@
-package com.example.test;
+package com.example.producer.service;
+import com.example.producer.dtos.StudentDto;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.kafka.core.KafkaTemplate;
@@ -20,6 +21,7 @@ public class ProducerService {
             System.out.println(dto);
             String data = objectMapper.writeValueAsString(dto);
             kafkaTemplate.send("test1-topic", data);
+//            kafkaTemplate.send("test2-topic", data);
         } catch (JsonProcessingException e) {
             throw new RuntimeException(e);
         }
