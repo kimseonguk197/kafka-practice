@@ -18,13 +18,13 @@ public class ConsumerService {
 //  테스트2 : 2대의 서버가 같은 그룹ID를 가지고 같은 topic을 listen 경우
     @KafkaListener(
             topics = "test1-topic",
-            groupId = "${spring.kafka.consumer.test1-group-id}",
-//            groupId = "${spring.kafka.consumer.test2-group-id}",
+//            groupId = "${spring.kafka.consumer.test1-group-id}",
+            groupId = "${spring.kafka.consumer.test2-group-id}",
             containerFactory = "kafkaListener"
     )
     public void consumer1(
             String message
     ) {
-        System.out.println("컨슈머 메시지 수신1 : " + message);
+        System.out.println("컨슈머2 메시지 수신 : " + message);
     }
 }

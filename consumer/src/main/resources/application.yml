@@ -6,7 +6,7 @@ spring:
     consumer:
       #      groupid는 컨슈머 그룹을 식별하는 ID로서, 동일한 그룹ID를 가진 컨슈머들은 메시지를 분담해서 consume
       test1-group-id: test1-group
-      test2-group-id: test2-group
+#      test2-group-id: test2-group
       #     true: 메시지를 poll해온 이후에 실패가 나더라도, 주기적으로 offset commit 수행.  컨슈머의 default설정은 true.
       #     false: 메시지가 성공일 경우에만 자동 commit. 실패이면 commit 수행하지 않음.
       enable-auto-commit: false
