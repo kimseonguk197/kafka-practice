@@ -1,6 +1,6 @@
 package com.example.producer.controller;
 
-import com.example.producer.dtos.StudentDto;
+import com.example.producer.dtos.MemberDto;
 import com.example.producer.service.ProducerService;
 import org.springframework.web.bind.annotation.*;
 
@@ -14,11 +14,11 @@ public class ProducerController {
     }
 
     @PostMapping("/message/create")
-    public void messageCreate(@RequestBody StudentDto dto){
+    public void messageCreate(@RequestBody MemberDto dto){
         producerService.kafkaMessageCreate(dto);
     }
     @PostMapping("/message/create/key")
-    public void messageCreateKey(@RequestBody StudentDto dto){
+    public void messageCreateKey(@RequestBody MemberDto dto){
         producerService.kafkaMessageKeyCreate(dto);
     }
 

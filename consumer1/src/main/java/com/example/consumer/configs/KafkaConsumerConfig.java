@@ -32,7 +32,7 @@ public class KafkaConsumerConfig {
         ConcurrentKafkaListenerContainerFactory<String, String> listener
                 = new ConcurrentKafkaListenerContainerFactory<>();
         listener.setConsumerFactory(consumerFactory());
-//        수동커밋을 위한 설정. 메시지를 배치단위로 커밋하는게 아닌, 레코드 단위로 커밋
+//        수동커밋을 위한 설정.
         listener.getContainerProperties().setAckMode(ContainerProperties.AckMode.MANUAL);
         return listener;
     }

@@ -1,5 +1,5 @@
 package com.example.producer.service;
-import com.example.producer.dtos.StudentDto;
+import com.example.producer.dtos.MemberDto;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.kafka.core.KafkaTemplate;
@@ -16,22 +16,22 @@ public class ProducerService {
         this.kafkaTemplate = kafkaTemplate;
         this.objectMapper = objectMapper;
     }
-    public void kafkaMessageCreate(StudentDto dto) {
+    public void kafkaMessageCreate(MemberDto dto) {
         try {
             System.out.println(dto);
-            String data = objectMapper.writeValueAsString(dto);
-            kafkaTemplate.send("test1-topic", data);
-//            kafkaTemplate.send("test2-topic", data);
+            String memberData = objectMapper.writeValueAsString(dto);
+            kafkaTemplate.send("member-topic", memberData);
+//            String orderData = "{ \"productId\": 101,\"productName\": \"게이밍 마우스\",\"quantity\": 3}";
+//            kafkaTemplate.send("order-topic", orderData);
         } catch (JsonProcessingException e) {
             throw new RuntimeException(e);
         }
     }
-    public void kafkaMessageKeyCreate(StudentDto dto) {
-        System.out.println(dto);
+    public void kafkaMessageKeyCreate(MemberDto dto) {
         try {
             System.out.println(dto);
             String data = objectMapper.writeValueAsString(dto);
-            kafkaTemplate.send("test1-topic","key1", data);
+            kafkaTemplate.send("member-topic","first", data);
         } catch (JsonProcessingException e) {
             throw new RuntimeException(e);
         }
