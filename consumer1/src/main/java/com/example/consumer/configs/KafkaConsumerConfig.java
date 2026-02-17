@@ -32,8 +32,8 @@ public class KafkaConsumerConfig {
         ConcurrentKafkaListenerContainerFactory<String, String> listener
                 = new ConcurrentKafkaListenerContainerFactory<>();
         listener.setConsumerFactory(consumerFactory());
-//        수동커밋을 위한 설정.
-        listener.getContainerProperties().setAckMode(ContainerProperties.AckMode.MANUAL);
+////        수동커밋을 위한 설정.
+//        listener.getContainerProperties().setAckMode(ContainerProperties.AckMode.MANUAL);
         return listener;
     }
 
