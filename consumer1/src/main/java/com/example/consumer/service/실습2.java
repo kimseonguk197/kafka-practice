@@ -16,7 +16,7 @@
 //
 ////  테스트1 : 2대의 컨슈머서버가 같은 그룹ID를 가지고 같은 topic을 listen 경우
 ////  테스트2 : 2대의 컨슈머서버가 다른 그룹ID를 가지고 같은 topic을 listen 경우
-//    테스트3 : 컨슈머그룹ID가 다른 서버에서 auto-offset-reset : earliest 또는 latest 설정
+//    테스트3 : 새롭게 추가되는 new 컨슈머그룹에서 auto-offset-reset의 earliest 또는 latest 설정
 //    @KafkaListener(
 //            topics = "member-topic",
 //            groupId = "${spring.kafka.consumer.member-topic-log-group-id}",
