@@ -17,9 +17,9 @@ public class ProducerController {
     public void messageCreate(@RequestBody MemberDto dto){
         producerService.kafkaMessageCreate(dto);
     }
-    @PostMapping("/message/create/key")
-    public void messageCreateKey(@RequestBody MemberDto dto){
-        producerService.kafkaMessageKeyCreate(dto);
+    @PostMapping("/message/create/key/{id}")
+    public void messageCreateKey(@RequestBody MemberDto dto, @PathVariable Long id){
+        producerService.kafkaMessageKeyCreate(dto, id);
     }
 
 }
