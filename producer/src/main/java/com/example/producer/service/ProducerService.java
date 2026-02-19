@@ -27,11 +27,11 @@ public class ProducerService {
             throw new RuntimeException(e);
         }
     }
-    public void kafkaMessageKeyCreate(MemberDto dto) {
+    public void kafkaMessageKeyCreate(MemberDto dto, Long id) {
         try {
             System.out.println(dto);
             String data = objectMapper.writeValueAsString(dto);
-            kafkaTemplate.send("member-topic","first", data);
+            kafkaTemplate.send("member-topic", String.valueOf(id), data);
         } catch (JsonProcessingException e) {
             throw new RuntimeException(e);
         }
